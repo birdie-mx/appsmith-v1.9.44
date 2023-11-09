@@ -23,7 +23,6 @@ import { PageMenuContainer, StyledNavLink } from "./PageMenu.styled";
 import { StyledCtaContainer } from "./Navigation/Sidebar.styled";
 import ShareButton from "./Navigation/components/ShareButton";
 import BackToAppsButton from "./Navigation/components/BackToAppsButton";
-import { getHideWatermark } from "@appsmith/selectors/tenantSelectors";
 
 interface NavigationProps {
   isOpen?: boolean;
@@ -41,7 +40,7 @@ export function PageMenu(props: NavigationProps) {
   const workspaceID = useSelector(getCurrentWorkspaceId);
   const headerHeight = useSelector(getAppViewHeaderHeight);
   const [query, setQuery] = useState("");
-  const hideWatermark = useSelector(getHideWatermark);
+  const hideWatermark = true;
   const navColorStyle =
     application?.applicationDetail?.navigationSetting?.colorStyle ||
     NAVIGATION_SETTINGS.COLOR_STYLE.LIGHT;

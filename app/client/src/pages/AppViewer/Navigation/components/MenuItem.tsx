@@ -28,6 +28,9 @@ const MenuItem = ({
   page,
   query,
 }: MenuItemProps) => {
+  const urlParams = new URLSearchParams(query);
+  const branch = urlParams.get("branch");
+  query = branch ? `?branch=${branch}` : "";
   const appMode = useSelector(getAppMode);
   const pageURL = useHref(
     appMode === APP_MODE.PUBLISHED ? viewerURL : builderURL,

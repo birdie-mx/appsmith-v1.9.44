@@ -139,7 +139,14 @@ export function Sidebar(props: SidebarProps) {
 
     return prefix + suffix;
   };
-
+  const excludePages = [
+    "Orden",
+    "Detalle de Orden",
+    "Crear Proveedor",
+    "Crear Producto",
+    "Crear Agente Aduanal",
+    "Crear Agente de Carga",
+  ];
   return (
     <StyledSidebar
       className={classNames({
@@ -155,8 +162,8 @@ export function Sidebar(props: SidebarProps) {
       <StyledHeader>
         <div className="flex flex-col gap-5">
           <NavigationLogo logoConfiguration={logoConfiguration} />
-
-          {!isMinimal &&
+          <img src="https://birdie-product-image-files.s3.amazonaws.com/birdie-logo-green.png" />
+          {false &&
             (logoConfiguration ===
               NAVIGATION_SETTINGS.LOGO_CONFIGURATION
                 .LOGO_AND_APPLICATION_TITLE ||
@@ -190,7 +197,8 @@ export function Sidebar(props: SidebarProps) {
         primaryColor={primaryColor}
       >
         {appPages.map((page) => {
-          return (
+          return excludePages.includes(page?.pageName) ||
+            page?.slug.includes("-hdn") ? null : (
             <MenuItemContainer
               forSidebar
               isTabActive={pathname.indexOf(page.pageId) > -1}
@@ -211,7 +219,7 @@ export function Sidebar(props: SidebarProps) {
         })}
       </StyledMenuContainer>
 
-      {props.showUserSettings && (
+      {false && (
         <StyledFooter navColorStyle={navColorStyle} primaryColor={primaryColor}>
           {currentApplicationDetails && (
             <StyledCtaContainer>
