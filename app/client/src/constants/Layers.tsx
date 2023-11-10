@@ -23,7 +23,7 @@ export const Layers = {
   // All Widgets Parent layer
   positionedWidget: Indices.Layer1,
   // Modal needs to higher than other widgets.
-  modalWidget: Indices.Layer10,
+  modalWidget: Indices.Layer9,
   // Dropdown portaled to the canvas
   dropdownWidget: Indices.Layer2,
   // dropdown portaled to Modal Container with higher index than Overlay
